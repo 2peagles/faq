@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+// Primary
+$Pale-blue: #e0e8ff;
+$Bright-blue: #3829e0;
+
+// Neutral
+$Very-pale-blue: #f5f7ff;
+$Desaturated-blue: #7280a7;
+
+// font
+$font-family: 'Red Hat Display',sans-serif;
+$weightsmall:500;
+$weightmed:700;
+$weightbold:900;
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  // border:1px solid red;
+}
+
+body{
+  font-family: $font-family;
+  // background-color: $Bright-blue;
+  background: rgb(67, 106, 238);
+  background: linear-gradient(0deg, rgba(67, 106, 238, 1) 0%, rgba(141, 5, 240, 1) 96%);
+}
+.container{
+  padding:5em 5em 5em 0;
+  border-radius: 1rem;
+  background-color: #fff;
+  text-align: left;
+}
+ .row{
+  display: flex;
+ }
+ .img_section{
+  width:500px;
+  // height:20vh;
+  margin-left:-80px;
+  background-repeat: no-repeat;
+  background-size:contain;
+  background-image: 
+      url("/images/illustration-woman-online-mobile.svg"),
+      url("/images/bg-pattern-desktop.svg"), 
+ }
+.faq_section{
+  margin-left:2.5rem;
+}
+ .dropdown {
+    position: relative;
+    margin-bottom:1em;
+   padding-bottom: .2em;
+   border-bottom: 1px solid green;
+ }
+p {
+  display: none;
+  max-width: 300px;
+  color: $Desaturated-blue;
+
+  font: {
+    weight: 500;
+    size: .8rem;
+  }
+}
+
+ h4 {
+  font-weight: 500;
+  color:$Desaturated-blue;
+  padding:0 ;
+  margin:.5em;
+  margin-right:auto;
+
+    &:active{
+      color:#000;
+      font-weight:900;
+
+        &:hover > span > img, 
+        &:active> span > img  {
+          animation: rotation 2s;
+       }
+                 &:hover + p,
+                 &:active + p{
+                  display:block;
+              }
+     }
+ }
+span{
+  margin-left: 4em;
+}
+@keyframes rotation {
+  50% {
+    transform: rotate(180deg);
+  }
+
+  // 100% {
+  //   transform: rotate(0deg);
+  // }
+}
+@media  screen and (max-width:800px) {
+  .container{
+    text-align: center;
+  }
+  .container{
+    padding:0 1em 3em;
+    margin:0;
+  }
+  .row{
+    display: block;
+  }
+  .img_section{
+    height:200px;
+    width:320px;
+    margin:auto;
+    // background-image: url("/my-vue-app/public/images/bg-pattern-mobile.svg");
+      background-image: 
+      url("/images/illustration-woman-online-mobile.svg"),
+       url("/images/bg-pattern-mobile.svg");
+  }
+     .faq_section {
+       margin-left: 0;
+     }
+      span {
+          margin-left: 1em;
+        }
+        // p{
+        //   font-size: 10px;
+        // }
+}
