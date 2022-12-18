@@ -17,7 +17,6 @@ $weightbold:900;
   max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
-  text-align: center;
 }
 
 * {
@@ -29,10 +28,10 @@ body{
   font-family: $font-family;
   // background-color: $Bright-blue;
   background: rgb(67, 106, 238);
-  background: linear-gradient(0deg, rgba(67, 106, 238, 1) 0%, rgba(141, 5, 240, 1) 96%);
+  background: linear-gradient(0deg, rgba(67, 106, 238, .85) 0%, rgba(141, 5, 240, .72) 96%);
 }
 .container{
-  padding:5em 5em 5em 0;
+  padding:0 3em  0;
   border-radius: 1rem;
   background-color: #fff;
   text-align: left;
@@ -42,32 +41,32 @@ body{
  }
  .row_arrow{
   display: flex;
-    &:hover + .dropdown-content{
-    display: block;
-   }
  }
  .img_section{
   width:500px;
   // height:20vh;
-  margin-left:-80px;
-  background-repeat: no-repeat;
-  background-size:contain;
-  background-image: 
-      url("/images/illustration-woman-online-mobile.svg"),
-      url("/images/bg-pattern-desktop.svg"), 
+  margin-left:-120px;
+  // background-size:contain;
+  background: 
+      url(/images/illustration-box-desktop.svg) center left no-repeat,
+      url(/images/illustration-woman-online-desktop.svg) 10px -24px no-repeat,
+      url(/images/bg-pattern-desktop.svg) center right no-repeat , 
  }
 .faq_section{
-  margin-left:2.5rem;
+  margin-left:4em;
+  padding: 3em 0 ;
 }
+
  .dropdown {
-    position: relative;
-    margin-bottom:1em;
-   padding-bottom: .2em;
-   border-bottom: 1px solid green;
+    display: block;
+    padding: .5em 0;
+    border-bottom: 1px solid $Desaturated-blue;
  }
     .dropdown-content {
       display: none;
+      text-align: left;
     }
+
 p {
   max-width: 300px;
   color: $Desaturated-blue;
@@ -81,24 +80,35 @@ p {
  h4 {
   font-weight: 500;
   color:$Desaturated-blue;
-  padding:0 ;
-  margin:.5em;
-  margin-right:auto;
+  margin:auto;
+  width:350px;
+  text-align: left;
+  // margin-right:auto;
 
-    &:active{
+    &:hover,
+    &:active {
       color:#000;
       font-weight:900;
 
-        &:hover + span  img, 
-        &:active + span + img {
+        &:hover ~ span img,
+        &:active ~ span img {
           animation: rotation 2s;
        }      
-         
      }
  }
  
 span{
-  margin-left: auto;
+
+  &:hover {
+    animation: rotation 2s;
+    color:#000;
+  }
+}
+
+button:focus {
+      &:focus + .dropdown-content {
+          display: block;
+        }
 }
 @keyframes rotation {
   50% {
@@ -110,32 +120,28 @@ span{
   // }
 }
 @media  screen and (max-width:800px) {
-  .container{
+  h2{
     text-align: center;
   }
+  h4{
+    width:310px;
+  }
   .container{
-    padding:0 1em 3em;
-    margin:0;
+    padding: 5em 1em 0;
   }
   .row{
     display: block;
   }
   .img_section{
     height:200px;
-    width:320px;
-    margin:auto;
-    // background-image: url("/my-vue-app/public/images/bg-pattern-mobile.svg");
-      background-image: 
-      url("/images/illustration-woman-online-mobile.svg"),
-       url("/images/bg-pattern-mobile.svg");
+    width:100%;
+    position: fixed;
+    margin:-180px 20px;
+    background: 
+      url("/images/illustration-woman-online-mobile.svg") no-repeat,
+      url("/images/bg-pattern-mobile.svg") -2px 130px no-repeat;
   }
      .faq_section {
        margin-left: 0;
      }
-      // span {
-      //     margin-left: 1em;
-      //   }
-        // p{
-        //   font-size: 10px;
-        // }
 }
